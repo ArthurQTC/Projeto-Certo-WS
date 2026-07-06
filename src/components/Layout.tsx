@@ -70,7 +70,14 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <nav className={`h-20 transition-all duration-500 border-b ${scrolled ? 'bg-white/95 backdrop-blur-md border-gray-100 shadow-sm' : 'bg-transparent border-white/10'}`}>
           <div className="max-w-7xl mx-auto px-6 h-full flex justify-between items-center">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3">
+            <Link 
+              to="/" 
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = '/';
+              }}
+              className="flex items-center space-x-3"
+            >
               <div className="w-8 h-8 flex items-center justify-center overflow-hidden">
                 <img 
                   src="https://dptxkbsyzfntolgmhniz.supabase.co/storage/v1/object/public/ProjetoCerto/faviconProjetoCerto.png" 
