@@ -23,4 +23,5 @@ export interface TeamMember {
   imageUrl: string;
   whatsapp?: string;
   instagram?: string;
+  whatsappUrl?: string;
 }

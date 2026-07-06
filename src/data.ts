@@ -88,6 +88,7 @@ export const team: TeamMember[] = [
     id: '5',
     name: 'Reginaldo Silveira',
     role: 'Gestor Comercial',
-    imageUrl: 'https://dptxkbsyzfntolgmhniz.supabase.co/storage/v1/object/public/ProjetoCerto/Regis.png'
+    imageUrl: 'https://dptxkbsyzfntolgmhniz.supabase.co/storage/v1/object/public/ProjetoCerto/Regis.png',
+    whatsappUrl: 'https://web.whatsapp.com/send?phone=5561992989169&text=Ol%C3%A1+Reginaldo'
   }
 ];

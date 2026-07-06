@@ -45,21 +45,25 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       {/* Header Container */}
       <header className="fixed top-0 left-0 w-full z-50">
         {/* Top Bar */}
-        <div className="bg-brand-black text-white/80 h-10 transition-all duration-500 flex items-center overflow-hidden">
+        <div className={`transition-all duration-500 h-10 flex items-center overflow-hidden border-b ${
+          scrolled 
+            ? 'bg-white/95 backdrop-blur-md border-gray-100 text-brand-black' 
+            : 'bg-brand-black border-transparent text-white/80'
+        }`}>
           <div className="max-w-7xl mx-auto px-6 w-full flex justify-between items-center text-[10px] uppercase tracking-widest font-medium">
             <div className="flex items-center space-x-6">
               <a href="mailto:comercial@projetocerto.com.br" className="flex items-center hover:text-brand-gold transition-colors">
-                <Mail className="w-3 h-3 mr-2 text-brand-gold" />
+                <Mail className="w-3 h-3 mr-2 text-brand-gold shrink-0" />
                 comercial@projetocerto.com.br
               </a>
               <a href="tel:+5561992989169" className="hidden md:flex items-center hover:text-brand-gold transition-colors">
-                <Phone className="w-3 h-3 mr-2 text-brand-gold" />
+                <Phone className="w-3 h-3 mr-2 text-brand-gold shrink-0" />
                 +55 (61) 99298-9169
               </a>
             </div>
             <div className="flex items-center space-x-6">
               <span className="flex items-center">
-                <MapPin className="w-3 h-3 mr-2 text-brand-gold" />
+                <MapPin className="w-3 h-3 mr-2 text-brand-gold shrink-0" />
                 Brasília - DF | Goiânia - GO
               </span>
             </div>

@@ -48,6 +48,7 @@ export default function Home() {
   const [activeHeroMobile, setActiveHeroMobile] = useState(0);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeBgIndex, setActiveBgIndex] = useState(0);
+  const [activeLightboxImage, setActiveLightboxImage] = useState<string | null>(null);
   const [submitStatus, setSubmitStatus] = useState<{
     loading: boolean;
     success: boolean;
@@ -67,6 +68,22 @@ export default function Home() {
     }, 5000);
     return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setActiveLightboxImage(null);
+      }
+    };
+
+    if (activeLightboxImage) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [activeLightboxImage]);
 
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -503,7 +520,8 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="relative group aspect-video overflow-hidden"
+                onClick={() => setActiveLightboxImage(s.img)}
+                className="relative group aspect-video overflow-hidden cursor-pointer"
               >
                 <img src={s.img} alt={s.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110" referrerPolicy="no-referrer" />
                 <div className="absolute inset-0 bg-brand-black/70 group-hover:bg-brand-black/40 transition-colors" />
@@ -557,9 +575,10 @@ export default function Home() {
           >
             <div className="absolute -top-8 -right-8 w-full h-full border-2 border-brand-gold -z-10" />
             <img
-              src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80"
+              src="https://dptxkbsyzfntolgmhniz.supabase.co/storage/v1/object/public/ProjetoCerto/ScreenPanel.jpeg"
               alt="Design Process"
               className="w-full h-full object-cover shadow-2xl"
+              referrerPolicy="no-referrer"
             />
           </motion.div>
         </div>
@@ -593,8 +612,8 @@ export default function Home() {
                         <Instagram className="w-4 h-4 text-white hover:text-brand-gold cursor-pointer" />
                       </a>
                     )}
-                    {member.whatsapp && (
-                      <a href={`https://wa.me/${member.whatsapp}`} target="_blank" rel="noopener noreferrer">
+                    {(member.whatsapp || member.whatsappUrl) && (
+                      <a href={member.whatsappUrl || `https://wa.me/${member.whatsapp}`} target="_blank" rel="noopener noreferrer">
                         <MessageCircle className="w-4 h-4 text-white hover:text-brand-gold cursor-pointer" />
                       </a>
                     )}
@@ -701,6 +720,38 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {activeLightboxImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setActiveLightboxImage(null)}
+            className="fixed inset-0 z-[100] bg-black/15 backdrop-blur-md flex items-center justify-center p-4 cursor-zoom-out"
+          >
+            <button
+              onClick={() => setActiveLightboxImage(null)}
+              className="absolute top-6 right-6 text-brand-black hover:text-brand-gold bg-white/90 hover:bg-white border border-gray-200/50 rounded-full p-2.5 shadow-xl transition-all duration-300 z-10 hover:scale-105 active:scale-95"
+              aria-label="Fechar"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <motion.img
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 120 }}
+              src={activeLightboxImage}
+              alt="Visualização do projeto"
+              className="max-w-full max-h-[90vh] object-contain shadow-2xl rounded"
+              onClick={(e) => e.stopPropagation()}
+              referrerPolicy="no-referrer"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </div>
   );
