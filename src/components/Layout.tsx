@@ -43,18 +43,18 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-white flex flex-col font-sans selection:bg-brand-gold selection:text-white">
       {/* Header Container */}
-      <header className="fixed w-full z-50">
+      <header className="fixed top-0 left-0 w-full z-50">
         {/* Top Bar */}
-        <div className={`bg-brand-black text-white/80 h-10 transition-all duration-500 flex items-center overflow-hidden ${scrolled ? 'h-0 opacity-0' : 'h-10 opacity-100'}`}>
+        <div className="bg-brand-black text-white/80 h-10 transition-all duration-500 flex items-center overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 w-full flex justify-between items-center text-[10px] uppercase tracking-widest font-medium">
             <div className="flex items-center space-x-6">
               <a href="mailto:comercial@projetocerto.com.br" className="flex items-center hover:text-brand-gold transition-colors">
                 <Mail className="w-3 h-3 mr-2 text-brand-gold" />
                 comercial@projetocerto.com.br
               </a>
-              <a href="tel:+556133467565" className="hidden md:flex items-center hover:text-brand-gold transition-colors">
+              <a href="tel:+5561992989169" className="hidden md:flex items-center hover:text-brand-gold transition-colors">
                 <Phone className="w-3 h-3 mr-2 text-brand-gold" />
-                +55 (61) 3346-7565
+                +55 (61) 99298-9169
               </a>
             </div>
             <div className="flex items-center space-x-6">
@@ -310,7 +310,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
               </li>
               <li className="flex items-center space-x-4">
                 <Phone className="w-4 h-4 text-brand-gold shrink-0" />
-                <span>+55 (61) 3346-7565</span>
+                <span>+55 (61) 99298-9169</span>
               </li>
               <li className="flex items-center space-x-4">
                 <Mail className="w-4 h-4 text-brand-gold shrink-0" />
@@ -336,7 +336,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
       {/* Floating Elements */}
       <a
-        href="https://web.whatsapp.com/send?phone=556192989169&text=Ol%C3%A1+Reginaldo%21+Gostaria+de+fazer+um+or%C3%A7amento"
+        href="https://web.whatsapp.com/send?phone=5561992989169&text=Ol%C3%A1+Reginaldo%21+Gostaria+de+fazer+um+or%C3%A7amento"
         target="_blank"
         rel="noopener noreferrer"
         className={`fixed bottom-8 right-8 z-[60] bg-[#25D366] text-white p-4 shadow-2xl transition-all duration-500 group active:scale-90 ${showScrollTop ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}

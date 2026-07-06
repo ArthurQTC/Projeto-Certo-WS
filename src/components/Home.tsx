@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { 
   ArrowRight, Award, Sparkles, Cpu, Download, 
   Home as HomeIcon, Building2, Layers, Factory, 
-  ArrowUpRight, Instagram, MessageCircle, X, Send,
+  ArrowUpRight, Instagram, MessageCircle, X,
   MapPin, Phone, Mail
 } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
@@ -43,7 +43,6 @@ const bgImages = [
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isChatOpen, setIsChatOpen] = useState(false);
   const [hoveredProduct, setHoveredProduct] = useState<number | null>(null);
   const [hoveredHeroCard, setHoveredHeroCard] = useState<number | null>(null);
   const [activeHeroMobile, setActiveHeroMobile] = useState(0);
@@ -264,9 +263,6 @@ export default function Home() {
         <div className="relative z-20 max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center mb-24 gap-8">
             <motion.div {...fadeIn} className="text-left max-w-2xl">
-              <span className="text-[11px] font-bold text-brand-gold uppercase tracking-[0.4em] block mb-4">
-                Diferenciais
-              </span>
               <h3 className="text-3xl md:text-5xl font-light tracking-tight text-white leading-tight">
                 Brises para Arquitetura e Controle Solar
               </h3>
@@ -633,7 +629,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h4 className="text-[10px] font-bold uppercase tracking-widest mb-2">Telefone</h4>
-                  <p className="text-gray-500 text-sm font-light">+55 (61) 3346-7565</p>
+                  <p className="text-gray-500 text-sm font-light">+55 (61) 99298-9169</p>
                 </div>
               </div>
               <div className="flex items-start space-x-6">
@@ -648,7 +644,7 @@ export default function Home() {
             </div>
 
             <a 
-              href="https://web.whatsapp.com/send?phone=556192989169&text=Ol%C3%A1+Reginaldo%21+Gostaria+de+fazer+um+or%C3%A7amento"
+              href="https://web.whatsapp.com/send?phone=5561992989169&text=Ol%C3%A1+Reginaldo%21+Gostaria+de+fazer+um+or%C3%A7amento"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center space-x-4 bg-[#25D366] text-white px-10 py-5 text-xs font-bold uppercase tracking-widest hover:shadow-2xl transition-all"
@@ -706,42 +702,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Floating Chatbot */}
-      <div className="fixed bottom-32 right-8 z-[60]">
-        <AnimatePresence>
-          {isChatOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: 20, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 20, scale: 0.9 }}
-              className="absolute bottom-20 right-0 w-80 bg-white shadow-2xl overflow-hidden flex flex-col"
-            >
-              <div className="bg-brand-black p-4 flex justify-between items-center">
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-brand-gold rounded-full animate-pulse" />
-                  <span className="text-[10px] font-bold text-white uppercase tracking-widest">Projeto Certo AI</span>
-                </div>
-                <button onClick={() => setIsChatOpen(false)} className="text-white/60 hover:text-white"><X className="w-4 h-4" /></button>
-              </div>
-              <div className="h-64 p-6 overflow-y-auto bg-gray-50 flex flex-col space-y-4">
-                <div className="bg-white p-3 shadow-sm self-start max-w-[85%] text-xs font-light leading-relaxed">
-                  Olá! Como posso ajudar você hoje com as soluções Hunter Douglas?
-                </div>
-              </div>
-              <div className="p-4 border-t border-gray-100 flex items-center gap-2">
-                <input type="text" placeholder="Sua dúvida..." className="flex-grow text-xs outline-none font-light py-2" />
-                <button className="text-brand-gold hover:text-brand-black transition-colors"><Send className="w-4 h-4" /></button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-        <button
-          onClick={() => setIsChatOpen(!isChatOpen)}
-          className="bg-brand-gold text-white p-4 shadow-xl hover:scale-110 transition-transform active:scale-95"
-        >
-          <MessageCircle className="w-7 h-7" />
-        </button>
-      </div>
     </div>
   );
 }
