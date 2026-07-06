@@ -61,27 +61,33 @@ export const team: TeamMember[] = [
     name: 'Eliel Oliveira',
     role: 'Diretor Executivo',
     whatsapp: '5561993290027',
-    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80'
+    imageUrl: 'https://dptxkbsyzfntolgmhniz.supabase.co/storage/v1/object/public/ProjetoCerto/eliel.jpg'
   },
   {
     id: '2',
     name: 'Andrew Soares',
     role: 'Arquiteto',
     instagram: 'arq.andrewsoares',
-    imageUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80'
+    imageUrl: 'https://dptxkbsyzfntolgmhniz.supabase.co/storage/v1/object/public/ProjetoCerto/andrew.jpg'
   },
   {
     id: '3',
     name: 'Ênio de Lima',
     role: 'Comercial: Goiás',
     whatsapp: '5562992952240',
-    imageUrl: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80'
+    imageUrl: 'https://dptxkbsyzfntolgmhniz.supabase.co/storage/v1/object/public/ProjetoCerto/enio.jpg'
   },
   {
     id: '4',
-    name: 'Alan Amorim',
+    name: 'Alan Amorin',
     role: 'Gerente Comercial',
     whatsapp: '5561992821967',
-    imageUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80'
+    imageUrl: 'https://dptxkbsyzfntolgmhniz.supabase.co/storage/v1/object/public/ProjetoCerto/alan.jpg'
+  },
+  {
+    id: '5',
+    name: 'Reginaldo Silveira',
+    role: 'Gestor Comercial',
+    imageUrl: 'https://dptxkbsyzfntolgmhniz.supabase.co/storage/v1/object/public/ProjetoCerto/Regis.png'
   }
 ];

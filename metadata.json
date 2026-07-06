@@ -1,6 +1,6 @@
 {
   "name": "Projeto Certo | Brises Hunter Douglas",
-  "description": "Distribuidor autorizado Hunter Douglas no DF, Goiás e Tocantins. Especialistas em brises arquitetônicos para controle solar de alta performance.",
+  "description": "Distribuidor autorizado Hunter Douglas no DF e Goiás. Especialistas em brises arquitetônicos para controle solar de alta performance.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
